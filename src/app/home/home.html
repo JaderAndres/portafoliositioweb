@@ -1,0 +1,24 @@
+<div class="home-container">
+
+  <p>Aquí encontrarás una selección de mis proyectos más destacados.</p>
+
+  <div class="projects-grid">
+    @for (proyecto of proyectos; track proyecto.id) {
+      <article class="project-card">
+        <div class="project-thumb" tabindex="0" role="button" (click)="irDetalleProyecto(proyecto.id)" (keyup.enter)="irDetalleProyecto(proyecto.id)">
+          <img
+            [src]="proyecto.imagenPresentacion"
+            [alt]="proyecto.tituloProyecto"
+            class="project-image"
+            loading="lazy"
+          />
+        </div>
+        <div class="project-info">
+          <h3>{{ proyecto.tituloProyecto }}</h3>
+          <p>{{ proyecto.presentacion }}</p>
+          <button class="btn-ver-detalle" (click)="irDetalleProyecto(proyecto.id)">Ver más</button>
+        </div>
+      </article>
+    }
+  </div>
+</div>

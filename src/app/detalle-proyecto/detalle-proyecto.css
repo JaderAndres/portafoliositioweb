@@ -1,0 +1,128 @@
+.detalle-proyecto-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.proyecto-info {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.tecnologias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.tecnologia-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tecnologia-item:focus-visible {
+  outline: 2px solid #5036ff;
+  outline-offset: 4px;
+}
+
+.tecnologia-item:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.tecnologia-item:active {
+  transform: scale(1.12);
+}
+
+.logo-tecnologia {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  will-change: transform;
+}
+
+.tecnologia-item:hover .logo-tecnologia {
+  transform: scale(1.08);
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.15));
+}
+
+.tecnologia-item:active .logo-tecnologia {
+  transform: scale(1.18);
+}
+
+.logo-tecnologia--placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #ececec;
+  font-weight: 700;
+  color: #555;
+}
+
+.nombre-tecnologia {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+.btn-ver-detalle {
+  align-self: flex-start;
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 999px;
+  background: #5036ff;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-ver-detalle:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(80, 54, 255, 0.25);
+}
+
+.btn-ver-detalle:active {
+  transform: translateY(0) scale(0.97);
+  box-shadow: none;
+}
+
+.imagen-responsive {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+  display: block;
+}
+
+.tecnologias-imagenes-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.tecnologia-imagen {
+  height: 60px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.tecnologia-imagen:hover {
+  transform: scale(1.1);
+}
