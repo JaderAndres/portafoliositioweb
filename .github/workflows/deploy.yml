@@ -3,48 +3,51 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Se ejecuta cuando haces push a main
+      - main
 
 permissions:
   contents: read
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Descargar el código del repositorio
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 2. Configurar Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'npm'
 
-      # 3. Instalar dependencias
       - name: Install dependencies
         run: npm ci
 
-      # 4. Build de la aplicación Angular
       - name: Build Angular app
-        run: npm run build -- --configuration production --base-href=/portafoliositioweb/
+        run: npm run build -- --configuration production --base-href=/${{ github.event.repository.name }}/
 
-      # 5. Configurar GitHub Pages
+      - name: Copy index to 404 for SPA routing
+        run: cp dist/*/browser/index.html dist/*/browser/404.html
+
+      - name: List build output
+        run: ls -la dist/*/browser/
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      # 6. Subir los archivos compilados
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist/portafolio/browser'
+          path: 'dist/*/browser'
 
-      # 7. Desplegar en GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
