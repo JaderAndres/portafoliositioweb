@@ -21,7 +21,7 @@
           </div>
 
           <div class="metodologia">
-            <h3>Identificación de variables y metodología</h3>
+            <h3>Identificación de variables</h3>
             {{ detalleProyecto.metodologia }}
           </div>
         </div>
@@ -46,7 +46,7 @@
         </div>
 
         <div class="narrativa">
-          <h3>Narrativa de datos</h3>
+          <h3>*Narrativa de datos</h3>
           <p>Narrativa</p>
           <!-- <p>{{ detalleProyecto.narrativa }}</p> -->
         </div>
@@ -93,7 +93,7 @@
         <h1 style="font-style: italic;">Adicionales</h1>
 
         <div class="procesoETL">
-          <h3>Proceso ETL (Extracción, Transformación y Carga)</h3>
+          <h3>Proceso ETL (Extracción, Transformación y Carga) con:</h3>
           <h3>CSV</h3>
           <p>Archivo CSV.XLSX.SQL en GitHub: xxxxxxx o en OneDrive (el mismo utilizado en Power BI)</p>
           <h3>Python</h3>
@@ -102,9 +102,10 @@
           <p>Base de datos en SQL Server Azure, SQLLite, Postgres: xxxxxxx</p> -->
         </div>
 
+        <hr>
 
         <div class="analisisEstadisticoyPython">
-          <h3>Análisis exploratorio de datos con Python</h3>
+          <h3>Análisis exploratorio de datos y estadistico con Python</h3>
           <p>Jupiter Notebook en GitHub: xxxxxxx</p>
 
           <!-- <p>{{ detalleProyecto.analisisEstadisticoyPython }}</p>
@@ -126,8 +127,10 @@
           </div> -->
         </div>
 
+        <hr>
+
         <div class="tendenciasMachineLearningPython">
-          <h3>*Tendencias - Machine Learning - con Python</h3>
+          <h3>Tendencias - Machine Learning - con Python</h3>
           <p>"¿Qué productos tendrán mayor demanda en los próximos meses?"</p>
           <ol>
             <li>Series temporales:</li>
@@ -137,21 +140,22 @@
           <p>Jupiter Notebook en GitHub: xxxxxxx</p>
         </div>
 
+        <hr>
 
-            @if (detalleProyecto.repositorioGitHub){
-              <p>Recordar hacer el README.md</p>
-              <div>
-                <a [href]="detalleProyecto.repositorioGitHub" target="_blank" rel="noopener noreferrer">
-                  <button class="btn-ver-detalle">Ir al repositorio del proyecto en GitHub</button>
-                </a>
-              </div>
-            }
-            @else {
-              <div>
-                <p>Repositorio no disponible</p>
-              </div>
-            }
+        @if (detalleProyecto.repositorioGitHub){
+          <div>
+            <a [href]="detalleProyecto.repositorioGitHub" target="_blank" rel="noopener noreferrer">
+              <button class="btn-ver-detalle">Ver más análisis en el repositorio del proyecto en GitHub</button>
+            </a>
+          </div>
+        }
+        @else {
+          <div>
+            <p>Repositorio no disponible</p>
+          </div>
+        }
 
+        <h1>Recordar hacer el README.md en GitHub</h1>
 
          <!-- @if (detalleProyecto.tecnologias?.length) {
           <div class="tecnologias">
