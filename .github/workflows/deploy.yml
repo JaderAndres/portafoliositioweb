@@ -42,13 +42,13 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Disable Jekyll
-        run: echo > dist/portafolio/browser/.nojekyll
+        run: echo > dist/portafolio/browser/browser/.nojekyll
 
       # 6. Subir los archivos compilados
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist/portafolio/browser'
+          path: 'dist/portafolio/browser/browser'
 
       # 7. Desplegar en GitHub Pages
       - name: Deploy to GitHub Pages
