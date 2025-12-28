@@ -91,6 +91,12 @@
               "src/styles.css"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+             "baseHref": "https://jaderandres.github.io/portafoliositioweb/"
+          }
         }
       }
     }
