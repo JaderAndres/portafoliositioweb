@@ -407,4 +407,4 @@ Para más información sobre Angular y sus características, visita:
 
 **Versión del Proyecto**: 0.0.0  
 **Generado con**: Angular CLI v20.3.9  
-**Última actualización**: Noviembre 2025
+**Última actualización**: Noviembre 2025 - 2026
