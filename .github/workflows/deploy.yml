@@ -44,6 +44,10 @@ jobs:
       - name: Disable Jekyll
         run: echo > dist/portafolio/browser/browser/.nojekyll
 
+      - name: Create 404.html for SPA routing
+        run: |
+          cp dist/portafolio/browser/browser/index.html dist/portafolio/browser/browser/404.html
+
       # 6. Subir los archivos compilados
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
