@@ -5,29 +5,74 @@
   <div class="detalle">
     @if (detalleProyecto)
     {
-        <div class="contenido">
+      <div class="contenido">
 
         <h1 style="text-align: center;">{{ detalleProyecto.tituloDetalle }}</h1>
 
         <div class="descripcionCompleta">
-          <!-- <h3>Descripción</h3> -->
-          {{ detalleProyecto.descripcionCompleta  }}
+          <h3>Contexto del negocio</h3>
+          <p>{{ detalleProyecto.descripcionCompleta  }}</p>
+
+
         </div>
 
-        <div class="obj_met" style="display: flex;">
-          <div class="objetivo">
-            <h3>Objetivo o problema</h3>
-            {{ detalleProyecto.objetivo }}
-          </div>
-
-          <div class="metodologia">
-            <h3>Identificación de variables</h3>
-            {{ detalleProyecto.metodologia }}
-          </div>
+        <div class="problema">
+            <h3>Problema</h3>
+            <p>{{ detalleProyecto.problema }}</p>
         </div>
 
-        <div class="imagenesDetalle" style="background-color: antiquewhite;">
-          <h3>Capturas dashboard</h3>
+        <div class="indicadoresClave">
+          <h3>Indicadores clave detectados</h3>
+          <ul>
+            @for (indicador of detalleProyecto.indicadoresClave; track $index)
+            {
+              <li>{{ indicador }}</li>
+            }
+          </ul>
+        </div>
+
+        <div class="interpretacionResultados">
+          <h3>Insights</h3>
+          <!-- <ul>
+            @for (interpretacion of detalleProyecto.insights; track $index)
+            {
+            <li>
+              <strong>{{ interpretacion.titulo }}</strong>
+              <ul>
+                <li><strong>Insight:</strong> {{ interpretacion.insight }}</li>
+                <li><strong>Por qué es importante:</strong>{{ interpretacion.porqueEsImportante }}</li>
+                <li><strong>Acción recomendada:</strong> {{ interpretacion.accion }}</li>
+              </ul>
+            </li>
+            }
+          </ul> -->
+          @for (interpretacion of detalleProyecto.insights; track $index)
+          {
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title style="font-weight: bold; background-color: #f0f0f0; padding: 10px; border-radius: 5px;">{{ $index + 1 }}. {{ interpretacion.insight }}</mat-panel-title>
+              <!-- <mat-panel-description>{{ interpretacion.titulo }}</mat-panel-description> -->
+            </mat-expansion-panel-header>
+            <p>{{ interpretacion.porqueEsImportante }}</p>
+            <p><i>Recomendación:</i> {{ interpretacion.accion }}</p>
+          </mat-expansion-panel>
+          <br>
+          }
+
+        </div>
+
+        <!-- <div class="recomendaciones">
+          <h3>Resumen de posibles acciones</h3>
+          <ul>
+            @for (recomendacion of detalleProyecto.recomendaciones; track $index)
+            {
+            <li>{{ recomendacion }}</li>
+            }
+          </ul>
+        </div> -->
+
+        <div class="imagenesDetalle">
+          <h3>Visualización en Power BI</h3>
           <div style="display: flex; flex-direction: column; align-items: center; row-gap: 10px;">
             @for (imagen of detalleProyecto.imagenesDetalle; track $index)
             {
@@ -45,32 +90,21 @@
           </div>
         </div>
 
-        <div class="narrativa">
-          <h3>*Narrativa de datos</h3>
-          <p>Narrativa</p>
-          <!-- <p>{{ detalleProyecto.narrativa }}</p> -->
-        </div>
+        <br>
 
-        <div class="interpretacionResultados">
-          <h3>Análisis de las visualizaciones</h3>
+        <div class="referencias">
+          <h3>Referencias</h3>
+          @if (detalleProyecto.referencias) {
           <ul>
-            @for (interpretacion of detalleProyecto.interpretacionResultados; track $index)
+            @for (referencia of detalleProyecto.referencias; track $index)
             {
-            <li>{{ interpretacion }}</li>
+              <li>{{ referencia }}</li>
             }
           </ul>
+          } @else {
+            <p>No hay referencias disponibles</p>
+          }
         </div>
-
-        <div class="recomendaciones">
-          <h3>Recomendaciones</h3>
-          <ul>
-            @for (recomendacion of detalleProyecto.recomendaciones; track $index)
-            {
-            <li>{{ recomendacion }}</li>
-            }
-          </ul>
-        </div>
-
 
         @if (detalleProyecto.tecnologias?.length) {
           <div class="tecnologias" style="width: 100%; background-color: white;">
@@ -90,6 +124,11 @@
           </div>
         }
 
+
+
+        <!-- ADICIONALES -->
+        <div class="adicionales" style="display:none">
+
         <h1 style="font-style: italic;">Adicionales</h1>
 
         <div class="procesoETL">
@@ -98,33 +137,7 @@
           <p>Archivo CSV.XLSX.SQL en GitHub: xxxxxxx o en OneDrive (el mismo utilizado en Power BI)</p>
           <h3>Python</h3>
           <p>Jupiter Notebook en GitHub: xxxxxxx</p>
-          <!-- <h4>SISS</h4>
-          <p>Base de datos en SQL Server Azure, SQLLite, Postgres: xxxxxxx</p> -->
-        </div>
-
-        <hr>
-
-        <div class="analisisEstadisticoyPython">
-          <h3>Análisis exploratorio de datos y estadistico con Python</h3>
-          <p>Jupiter Notebook en GitHub: xxxxxxx</p>
-
-          <!-- <p>{{ detalleProyecto.analisisEstadisticoyPython }}</p>
-          <div class="estadisticas-python">
-            <div class="estadisticas">
-              <h4>Estadísticas Relevantes</h4>
-              <ul>
-                @for (estadistica of detalleProyecto.estadisticasRelevantes; track $index) {
-                  <li>
-                    <strong>{{ estadistica.nombre }}:</strong> {{ estadistica.valor }}
-                  </li>
-                }
-              </ul>
-            </div>
-            <div class="uso-python">
-              <h4>Uso de Python</h4>
-              <p>{{ detalleProyecto.usoPython }}</p>
-            </div>
-          </div> -->
+          <p>Base de datos en SQL Server Azure, SQLLite, Postgres: xxxxxxx</p>
         </div>
 
         <hr>
@@ -140,52 +153,11 @@
           <p>Jupiter Notebook en GitHub: xxxxxxx</p>
         </div>
 
-        <hr>
+      </div> <!-- fin adicionales -->
 
-        @if (detalleProyecto.repositorioGitHub){
-          <div>
-            <a [href]="detalleProyecto.repositorioGitHub" target="_blank" rel="noopener noreferrer">
-              <button class="btn-ver-detalle">Ver más análisis en el repositorio del proyecto en GitHub</button>
-            </a>
-          </div>
-        }
-        @else {
-          <div>
-            <p>Repositorio no disponible</p>
-          </div>
-        }
+      <h1>Recordar actualizar el README.md en GitHub</h1>
 
-        <h1>Recordar hacer el README.md en GitHub</h1>
-
-         <!-- @if (detalleProyecto.tecnologias?.length) {
-          <div class="tecnologias">
-            <h3>Tecnologías Utilizadas</h3>
-            <div class="tecnologias-grid">
-              @for (tecnologia of detalleProyecto.tecnologias; track $index) {
-                <div class="tecnologia-item" tabindex="0" role="button" aria-pressed="false">
-                  @if (tecnologia.imagen) {
-                    <img
-                      [src]="tecnologia.imagen"
-                      [alt]="tecnologia.nombre || 'Logo de tecnología'"
-                      class="logo-tecnologia"
-                      loading="lazy"
-                    />
-                  } @else if (tecnologia.nombre) {
-                    <div class="logo-tecnologia logo-tecnologia--placeholder">
-                      {{ tecnologia.nombre.charAt(0) }}
-                    </div>
-                  }
-
-                  @if (tecnologia.nombre) {
-                    <span class="nombre-tecnologia">{{ tecnologia.nombre }}</span>
-                  }
-                </div>
-              }
-            </div>
-          </div>
-        } -->
-
-      </div>
+      </div> <!-- fin contenido -->
     } @else {
       <p>No se encontró el ID del proyecto</p>
     }

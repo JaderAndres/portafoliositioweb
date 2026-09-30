@@ -1,14 +1,14 @@
 /**
  * Component for displaying detailed information about a project.
- * 
+ *
  * This component retrieves project details based on an ID parameter from the URL
  * and displays them using the DetalleProyectoService. It also provides navigation
  * functionality to return to the home page.
- * 
+ *
  * @component
  * @selector app-detalle-proyecto
  * @standalone true
- * 
+ *
  * @example
  * // Route configuration
  * { path: 'proyecto/:id', component: DetalleProyecto }
@@ -16,13 +16,16 @@
 import { Component, inject, OnInit  } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatCardModule } from '@angular/material/card';
 import { DetalleProyectoService } from '../services/detalleproyecto';
 import { DetalleProyecto as DetalleProyectoModel } from '../models/detalleproyecto';
+
 
 @Component({
   selector: 'app-detalle-proyecto',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, MatExpansionModule, MatCardModule],
   templateUrl: './detalle-proyecto.html',
   styleUrl: './detalle-proyecto.css',
 })
@@ -48,10 +51,6 @@ export class DetalleProyecto implements OnInit {
       // Asigna a detalleProyecto para mostrar el detalle en la plantilla
       this.detalleProyecto = detalle || null;
 
-
-
-      //Prueba
-      // console.log(this.detalleProyecto);
     }
 
   }
