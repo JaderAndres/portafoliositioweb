@@ -18,15 +18,17 @@ export class ProyectoService {
       enlaceDetalle: '',
       tipoProyecto: 'PowerBI',
       fechaCreacion: new Date(),
+      visible: true,
     },
     {
       id: '2',
       tituloProyecto: 'Online Retail Analytics: De Datos a Decisiones Estratégicas',
       presentacion: 'Análisis de 536K transacciones que identificó un riesgo crítico de concentración geográfica del 89% (£5.6M en riesgo) y diseñó plan de diversificación con ROI proyectado de 3x en 12 meses.',
-      imagenPresentacion: 'imagenes/powerbi/ventas/pres_ventas.jpeg',
+      imagenPresentacion: '',
       enlaceDetalle: '',
       tipoProyecto: 'PowerBI',
       fechaCreacion: new Date(),
+      visible: false,
     },
   ];
 

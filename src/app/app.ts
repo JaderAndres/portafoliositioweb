@@ -8,6 +8,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.css'
 })
 export class App {
-  protected readonly title = signal('Portafolio de Power BI');
+  protected readonly title = signal('Portafolio de proyectos');
+  protected readonly anio = new Date().getFullYear();
 }
 

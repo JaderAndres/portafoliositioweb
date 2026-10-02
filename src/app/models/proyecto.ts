@@ -6,6 +6,7 @@ export interface Proyecto {
   enlaceDetalle?: string; // Enlace a la página de detalle del proyecto
   tipoProyecto: string;   // Ejemplo: "Web", "PowerBI", "Data Science", etc.
   fechaCreacion: Date;
+  visible: boolean; // Indica si el proyecto es visible en la página de inicio
 }
 
 

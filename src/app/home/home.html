@@ -1,9 +1,14 @@
 <div class="home-container">
 
-  <p>Aquí encontrarás una selección de mis proyectos más destacados.</p>
+  <!-- Pagina de inicio -->
 
+  <p>Aquí encontrarás una selección de mis proyectos más destacados de Power BI:</p>
+
+  <!-- Grid de proyectos de Power BI -->
   <div class="projects-grid">
     @for (proyecto of proyectos; track proyecto.id) {
+      @if (proyecto.visible)
+      {
       <article class="project-card">
         <div class="project-thumb" tabindex="0" role="button" (click)="irDetalleProyecto(proyecto.id)" (keyup.enter)="irDetalleProyecto(proyecto.id)">
           <img
@@ -19,6 +24,11 @@
           <button class="btn-ver-detalle" (click)="irDetalleProyecto(proyecto.id)">Ver más</button>
         </div>
       </article>
+      }
     }
   </div>
+
+  <!-- Grid de proyectos de Inteligencia Artificial -->
+
+
 </div>

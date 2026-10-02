@@ -42,7 +42,7 @@ export class DetalleProyectoService {
         problema: 'A pesar de un crecimiento del 15% YoY y £6.3M en ventas netas, la dirección sospecha de vulnerabilidades ocultas en el modelo de negocio que pueden afectar la rentabilidad a largo plazo. Se requiere un análisis profundo para identificar riesgos y oportunidades estratégicas.',
         metodologia: 'Este dashboard inicia con una visión ejecutiva que muestra el estado actual del negocio. Luego se compara el desempeño con períodos anteriores y metas para dar contexto. Posteriormente se analiza el desempeño por categoría y región para identificar causas. Finalmente, se muestran alertas y rankings que permiten tomar acciones concretas.',
         indicadoresClave: ['Ventas netas', 'Tasa de devolución', 'Concentración geográfica', 'Clientes recurrentes', 'Promedio de venta', 'Top de productos más vendidos'],
-        imagenesDetalle: ['imagenes/powerbi/inventario/p1.svg','imagenes/powerbi/inventario/p2.svg'],
+        imagenesDetalle: [],
         insights: [
           {
             titulo: '1. Riesgo de concentración',
@@ -65,7 +65,7 @@ export class DetalleProyectoService {
         ],
         recomendaciones: ['Implementar un sistema de alertas para niveles bajos de inventario en productos clave.', 'Revisar y ajustar las políticas de reabastecimiento basadas en las tendencias identificadas.', 'Diversificar las ventas a otros mercados para reducir la dependencia de un solo mercado.'],
         enlaceExternoProyecto: 'https://app.powerbi.com/view?r=eyJrIjoiMGY0NGI2YmUtZGJiNS00NjUxLThlMzEtNjY1YzM4NjIxZDNhIiwidCI6IjM4NTVmZDBlLTJlOWEtNGZjYy05NTUyLTg3OGEwZmU0YTA1ZCIsImMiOjR9',
-        tecnologias: [{ nombre: 'PowerBI', imagen:'imagenes/logos/powerbilogo.png' }, {nombre: 'excel', imagen:'imagenes/logos/excellogo.png'}],
+        tecnologias: [{nombre: 'excel', imagen:'imagenes/logos/excellogo.png'}],
         referencias: ['Dataset: Chen, D. (2015). Online Retail [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5BW33.', 'IA de apoyo: chatgpt.com, claude.ai'],
       }
   ];

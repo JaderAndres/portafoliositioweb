@@ -71,6 +71,8 @@
           </ul>
         </div> -->
 
+        @if (detalleProyecto.imagenesDetalle.length > 0)
+        {
         <div class="imagenesDetalle">
           <h3>Visualización en Power BI</h3>
           <div style="display: flex; flex-direction: column; align-items: center; row-gap: 10px;">
@@ -89,6 +91,10 @@
             <a [href]="detalleProyecto.enlaceExternoProyecto" target="_blank"><button type="button" class="btn-ver-detalle">Ver tablero completo en Power BI</button></a>
           </div>
         </div>
+      }
+      @else {
+          <p>No hay imágenes disponibles</p>
+      }
 
         <br>
 
@@ -155,7 +161,7 @@
 
       </div> <!-- fin adicionales -->
 
-      <h1>Recordar actualizar el README.md en GitHub</h1>
+      <!-- <h1>Recordar actualizar el README.md en GitHub</h1> -->
 
       </div> <!-- fin contenido -->
     } @else {
